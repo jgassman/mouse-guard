@@ -1,0 +1,9 @@
+<h1>Mouse Guard For Life</h1>
+
+{{ input value=quantity }} <button {{ action "roll" }}>Roll</button>
+
+{{#if results}}
+  {{ results }}
+{{/if}}
+
+{{outlet}}
