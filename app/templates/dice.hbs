@@ -1,9 +1,33 @@
 <h1>Mouse Guard For Life</h1>
 
-{{ input value=quantity }} <button {{ action "roll" }}>Roll</button>
+<section class="form container with-title">
+  <div class="field">
+    <label for="quantity">Number of Dice</label>
+    {{ input value=quantity class="input" id="quantity"}}
+    <button {{ action "roll" }} class="btn">Roll</button>
+  </div>
+</section>
 
 {{#if results}}
-  {{ results }}
+  <section class="container with-title">
+    <h2>Results</h2>
+    <div class="containers">
+      {{#each results as |result|}}
+        <div class="container is-rounded">
+          {{result}}
+          {{#if (compare result "==" 4)}}
+            <i class="icon star"></i>
+          {{/if}}
+          {{#if (compare result "==" 5)}}
+            <i class="icon star"></i>
+          {{/if}}
+          {{#if (compare result "==" 6)}}
+            <i class="icon star is-large"></i>
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+  </section>
 {{/if}}
 
 {{outlet}}
