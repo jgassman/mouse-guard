@@ -8,20 +8,21 @@
   </div>
 </section>
 
-{{#if results}}
+{{#if sortedResults}}
   <section class="container with-title">
     <h2>Results</h2>
     <div class="containers">
-      {{#each results as |result|}}
+      <h4>{{successes}} Successes!</h4>
+      {{#each sortedResults as |result|}}
         <div class="container is-rounded">
-          {{result}}
-          {{#if (compare result "==" 4)}}
+          {{result.value}}
+          {{#if (compare result.value "==" 4)}}
             <i class="icon star"></i>
           {{/if}}
-          {{#if (compare result "==" 5)}}
+          {{#if (compare result.value "==" 5)}}
             <i class="icon star"></i>
           {{/if}}
-          {{#if (compare result "==" 6)}}
+          {{#if (compare result.value "==" 6)}}
             <i class="icon star is-large"></i>
           {{/if}}
         </div>
